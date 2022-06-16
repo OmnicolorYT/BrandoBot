@@ -17,7 +17,7 @@ class Groups(commands.Cog):
         self.OWNER_IDS = OWNER_IDS
 
     @commands.command()
-    @commands.has_any_role(805838742744465419)
+    @commands.has_any_role(973847262239277106)
     async def newgroup(self, ctx, groupname):
         global memberdepartment, role
         exist = False
@@ -57,7 +57,7 @@ class Groups(commands.Cog):
                            f'группу. \nПример: !addstudents {ctx.author.guild.get_member(OWNER_IDS[0]).mention}')
 
     @commands.command()
-    @commands.has_any_role(805838742744465419)
+    @commands.has_any_role(973847262239277106)
     async def addstudents(self, ctx, *args: discord.Member):
         for role in ctx.author.roles:
             if role.name.startswith('группа'):
@@ -69,7 +69,7 @@ class Groups(commands.Cog):
             await ctx.send('Вы не состоите в группе!')
 
     @commands.command()
-    @commands.has_any_role(805838742744465419)
+    @commands.has_any_role(973847262239277106)
     async def removestudents(self, ctx, *args: discord.Member):
         for role in ctx.author.roles:
             if role.name.startswith('группа'):

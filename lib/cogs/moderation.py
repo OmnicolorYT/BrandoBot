@@ -9,7 +9,7 @@ class Moderation(commands.Cog):
         self.bot = bot
 
     @commands.command()
-    @commands.has_any_role(973847262239277106)
+    @commands.has_permissions(administrator=True)
     async def ping(self, ctx: commands.Context):
         await ctx.send(f'Pong! {round(self.bot.latency * 1000)}ms')
 
@@ -57,21 +57,21 @@ class Moderation(commands.Cog):
     #     time.sleep(5)
     #     await ctx.channel.purge(limit=2)
 
-    @commands.command()
-    @commands.has_permissions(administrator=True)
-    async def load(self, ctx, extension):
-        self.bot.load_extension(f'./cogs/{extension}')
-
-    @commands.command()
-    @commands.has_permissions(administrator=True)
-    async def unload(self, ctx, extension):
-        self.bot.unload_extension(f'./cogs/{extension}')
-
-    @commands.command()
-    @commands.has_permissions(administrator=True)
-    async def reload(self, ctx, extension):
-        self.bot.unload_extension(f'./cogs/{extension}')
-        self.bot.load_extension(f'./cogs/{extension}')
+    # @commands.command()
+    # @commands.has_permissions(administrator=True)
+    # async def load(self, ctx, extension):
+    #     self.bot.load_extension(f'./cogs/{extension}')
+    #
+    # @commands.command()
+    # @commands.has_permissions(administrator=True)
+    # async def unload(self, ctx, extension):
+    #     self.bot.unload_extension(f'./cogs/{extension}')
+    #
+    # @commands.command()
+    # @commands.has_permissions(administrator=True)
+    # async def reload(self, ctx, extension):
+    #     self.bot.unload_extension(f'./cogs/{extension}')
+    #     self.bot.load_extension(f'./cogs/{extension}')
 
     @commands.command()
     @commands.has_permissions(manage_messages=True)

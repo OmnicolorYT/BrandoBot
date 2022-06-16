@@ -38,10 +38,10 @@ class Roles(commands.Cog):
 
         await ctx.send(embed=emb)
 
-    @commands.Cog.listener()
-    async def on_member_join(self, member):
-        role = self.bot.get_guild(759167756317884436).get_role(806886225474486272)
-        await member.add_roles(role)
+    # @commands.Cog.listener()
+    # async def on_member_join(self, member):
+    #     role = self.bot.get_guild(759167756317884436).get_role(806886225474486272)
+    #     await member.add_roles(role)
 
     @commands.Cog.listener()
     async def on_raw_reaction_add(self, payload):

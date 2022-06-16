@@ -10,7 +10,10 @@ from discord.ext.commands import MissingPermissions
 from discord import Intents, Embed, File
 from discord.ext import commands
 from apscheduler.schedulers.background import BackgroundScheduler
+<<<<<<< Updated upstream
 from lib.cogs.timetable import Timetable
+=======
+>>>>>>> Stashed changes
 import schedule
 
 from ..db import db
@@ -32,12 +35,19 @@ class Bot(BotBase):
     def __init__(self):
         self.READY = None
         self.TOKEN = None
+<<<<<<< Updated upstream
         self.VERSION = None
+=======
+>>>>>>> Stashed changes
         self.OWNER_IDS = OWNER_IDS
         self.PREFIX = PREFIX
         self.ready = False
         self.guild = None
         self.scheduler = AsyncIOScheduler()
+<<<<<<< Updated upstream
+=======
+        self.VERSION = None
+>>>>>>> Stashed changes
         db.autosave(self.scheduler)
 
         intents = Intents.default()

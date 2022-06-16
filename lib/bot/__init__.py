@@ -10,12 +10,11 @@ from discord.ext.commands import MissingPermissions
 from discord import Intents, Embed, File
 from discord.ext import commands
 from apscheduler.schedulers.background import BackgroundScheduler
-from lib.cogs.timetable import Timetable
 import schedule
 
 from ..db import db
 
-PREFIX = "!"
+PREFIX = "#"
 OWNER_IDS = [317315671224483840]
 COGS = [path.split("\\")[-1][:-3] for path in glob("./lib/cogs/*.py")]
 
@@ -64,12 +63,12 @@ class Bot(BotBase):
     async def on_error(self, err, *args, **kwargs):
         if err == "on_command_error":
             await args[0].send('Что-то пошло не так...')
-        channel = self.get_channel(809020872895496232)
+        channel = self.get_channel(987020425550766190)
         await channel.send('Произошла ошибка...')
         raise
 
     async def on_command_error(self, ctx, exc):
-        channel = self.get_channel(809020872895496232)
+        channel = self.get_channel(987020425550766190)
         await channel.send('Произошла ошибка...')
         if isinstance(exc, CommandNotFound):
             await ctx.send('Не существует такой команды...')
@@ -92,7 +91,7 @@ class Bot(BotBase):
     async def on_ready(self):
         if not self.ready:
             self.READY = True
-            self.guild = self.get_guild(759167756317884436)
+            self.guild = self.get_guild(950855910857785414)
             self.scheduler.start()
             print("[log]bot ready")
 

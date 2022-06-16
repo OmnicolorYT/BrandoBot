@@ -9,7 +9,7 @@ class Moderation(commands.Cog):
         self.bot = bot
 
     @commands.command()
-    @commands.has_any_role(805852160952762390)
+    @commands.has_any_role(973847262239277106)
     async def ping(self, ctx: commands.Context):
         await ctx.send(f'Pong! {round(self.bot.latency * 1000)}ms')
 
@@ -26,36 +26,36 @@ class Moderation(commands.Cog):
         time.sleep(5)
         await ctx.channel.purge(limit=1)
 
-    @commands.command()
-    @commands.has_permissions(kick_members=True)
-    async def kick(self, ctx, member: discord.Member, *, reason='захотелось'):
-        await member.kick(reason=reason)
-        await ctx.send(f'Участник {member.name} выгнан с сервера по причине: {reason}')
-        time.sleep(5)
-        await ctx.channel.purge(limit=2)
+    # @commands.command()
+    # @commands.has_permissions(kick_members=True)
+    # async def kick(self, ctx, member: discord.Member, *, reason='захотелось'):
+    #     await member.kick(reason=reason)
+    #     await ctx.send(f'Участник {member.name} выгнан с сервера по причине: {reason}')
+    #     time.sleep(5)
+    #     await ctx.channel.purge(limit=2)
 
-    @commands.command()
-    @commands.has_permissions(ban_members=True)
-    async def ban(self, ctx, member: discord.Member, reason):
-        await member.ban(reason=reason)
-        await ctx.channel.purge(limit=1)
-        await ctx.send(f'Пользователь {member.name}#{member.discriminator} заблокирован по причине: {reason}!')
-
-    @commands.command()
-    @commands.has_permissions(ban_members=True)
-    async def unban(self, ctx, *, member):
-        banned_users = await ctx.guild.bans()
-        member_name, member_discriminator = member.split('#')
-        for ban_entry in banned_users:
-            user = ban_entry.user
-            if (user.name, user.discriminator) == (member_name, member_discriminator):
-                await ctx.guild.unban(user)
-                await ctx.send(f'Пользователь {user.name}#{user.discriminator} разблокирован!')
-                break
-        else:
-            await ctx.send(f'Пользователь {member_name}#{member_discriminator} не заблокирован!')
-        time.sleep(5)
-        await ctx.channel.purge(limit=2)
+    # @commands.command()
+    # @commands.has_permissions(ban_members=True)
+    # async def ban(self, ctx, member: discord.Member, reason):
+    #     await member.ban(reason=reason)
+    #     await ctx.channel.purge(limit=1)
+    #     await ctx.send(f'Пользователь {member.name}#{member.discriminator} заблокирован по причине: {reason}!')
+    #
+    # @commands.command()
+    # @commands.has_permissions(ban_members=True)
+    # async def unban(self, ctx, *, member):
+    #     banned_users = await ctx.guild.bans()
+    #     member_name, member_discriminator = member.split('#')
+    #     for ban_entry in banned_users:
+    #         user = ban_entry.user
+    #         if (user.name, user.discriminator) == (member_name, member_discriminator):
+    #             await ctx.guild.unban(user)
+    #             await ctx.send(f'Пользователь {user.name}#{user.discriminator} разблокирован!')
+    #             break
+    #     else:
+    #         await ctx.send(f'Пользователь {member_name}#{member_discriminator} не заблокирован!')
+    #     time.sleep(5)
+    #     await ctx.channel.purge(limit=2)
 
     @commands.command()
     @commands.has_permissions(administrator=True)
